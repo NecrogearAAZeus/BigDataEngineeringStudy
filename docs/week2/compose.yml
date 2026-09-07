@@ -1,0 +1,8 @@
+services:                                    # 매핑 — 아래가 서비스 목록이다
+  lab-db:                                        # 서비스 이름 (자유) — 명령에는 없던 것
+    image: postgres              # 공유 폴더에서 올린 이미지:태그
+    container_name: lab-db                   # --name 과 같다
+    ports:                                   # 시퀀스 — 앞에 - 가 붙는다
+      - "5432:5432"                          # ★ 따옴표를 친다. 이유는 ⑤
+    environment:                             # 매핑 — 아래는 key: value
+      POSTGRES_PASSWORD: ${DB_PASSWORD}             # ⑥ 에서 이 줄을 고친다
